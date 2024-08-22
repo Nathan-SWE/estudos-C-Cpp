@@ -14,4 +14,7 @@ void main()
     printf("\nO valor atual é: %d", valor);
     valor -= 6;
   }
+
+  printf("\nPressione enter para encerrar...");
+  getchar();
 }
