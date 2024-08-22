@@ -5,6 +5,7 @@
 void main()
 {
   // programa que leia número inteiro e imprima se ele está entre 0 e 10
+  setlocale(LC_ALL, "pt_BR.UTF-8");
 
   int num;
 

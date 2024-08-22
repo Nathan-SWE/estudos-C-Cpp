@@ -5,6 +5,7 @@
 void main()
 {
   // programa que leia dois números inteiros e imprima qual é o maior, ou se são iguais.
+  setlocale(LC_ALL, "pt_BR.UTF-8");
 
   int num1, num2;
 

@@ -5,6 +5,7 @@
 void main()
 {
   // programa que imprime se um número é par ou não;
+  setlocale(LC_ALL, "pt_BR.UTF-8");
 
   int num;
 

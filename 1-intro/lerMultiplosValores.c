@@ -5,6 +5,8 @@
 void main()
 {
   // algoritmo que leia 3 valores inteiros de uma só vez, multiplique-os, e exiba o resultado.
+  setlocale(LC_ALL, "pt_BR.UTF-8");
+
   int num1, num2, num3, resultado;
 
   printf("Digite três números inteiros separados por espaço:\n");

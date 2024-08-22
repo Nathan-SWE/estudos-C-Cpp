@@ -5,7 +5,7 @@
 void main()
 {
   // algoritmo que leia duas notas e mostre a média entre elas;
-  setlocale(LC_ALL, "");
+  setlocale(LC_ALL, "pt_BR.UTF-8");
 
   float nota1, nota2;
 

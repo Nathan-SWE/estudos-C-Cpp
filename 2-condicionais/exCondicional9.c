@@ -4,7 +4,8 @@
 
 void main()
 {
-  // programa de calculadora básica, leia dois números, mostre as opções de operações, e imprima o resultado.
+  // Programa de calculadora básica, leia dois números, mostre as opções de operações, e imprima o resultado.
+  setlocale(LC_ALL, "pt_BR.UTF-8");
 
   float num1, num2, resultado;
   int operacao;
@@ -46,4 +47,7 @@ void main()
     printf("Opção inválida, execute o programa novamente!");
     break;
   }
+  getchar();
+  printf("\nPressione Enter para sair...");
+  getchar();
 }

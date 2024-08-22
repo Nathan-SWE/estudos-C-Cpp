@@ -5,6 +5,7 @@
 void main()
 {
   // programa que leia dois números inteiros e imprima se a soma estiver entre 0 e 10 ou se a soma for par.
+  setlocale(LC_ALL, "pt_BR.UTF-8");
 
   int num1, num2, soma;
 

@@ -4,6 +4,8 @@
 
 void main()
 {
+  setlocale(LC_ALL, "pt_BR.UTF-8");
+
   int num1, num2, soma;
   printf("Informe o primeiro número inteiro: ");
   scanf("%d", &num1);

@@ -5,6 +5,7 @@
 void main()
 {
   // programa que leia 3 números inteiros e imprima se os 3 são maiores que 10
+  setlocale(LC_ALL, "pt_BR.UTF-8");
 
   int num1, num2, num3;
 
