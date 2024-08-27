@@ -8,14 +8,13 @@ void main()
   setlocale(LC_ALL, "pt-BR.UTF-8");
   float notas[3], media;
 
-  printf("Informe os valores das notas a serem calculadas: ");
-  scanf("%f %f %f", &notas[0], &notas[1], &notas[2]);
-
+  printf("Informe os valores das notas a serem calculadas: \n");
   for (int i = 0; i < 3; i++)
   {
-    printf("Nota %d: %.2f\n", (i + 1), notas[i]);
+    printf("%d° nota: ", i + 1);
+    scanf("%f", &notas[i]);
   }
-
+  
   media = (notas[0] + notas[1] + notas[2]) / 3;
   printf("\nSua média é de: %.2f", media);
 
