@@ -38,6 +38,29 @@ void main()
         }
       }
       break;
+    case 2:
+      printf("Digite um item para adicionar: ");
+      scanf("%s", &item);
+      int i;
+
+      for (i = 0; i < TAM_MOCHILA; i++)
+      {
+        if (strcmp(mochila[i], "") == 0)
+        {
+          break;
+        }
+      }
+
+      if (i == TAM_MOCHILA)
+      {
+        printf("Mochila cheia!\n");
+      }
+      else
+      {
+        strcpy(mochila[i], item);
+        printf("Item adicionado com sucesso!\n");
+      }
+      break;
     case 4:
       printf("\nSaindo do sistema!");
       sair = 1;
