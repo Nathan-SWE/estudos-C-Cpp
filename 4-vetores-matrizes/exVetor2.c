@@ -10,7 +10,8 @@ void main()
 {
   // inventário que permita ao usuário verificar o que há guardado, remover e adicionar itens.
   setlocale(LC_ALL, "pt-BR.UTF-8");
-  int opcao, remover, sair = 0;
+
+  int opcao, sair = 0;
   char mochila[TAM_MOCHILA][TAM_NOME] = {0};
   char item[20] = {0};
 
@@ -22,6 +23,7 @@ void main()
     printf("3 - Remover item da mochila.\n");
     printf("4 - Sair.\n");
     scanf("\n%d", &opcao);
+    printf("\n");
 
     switch (opcao)
     {
@@ -38,10 +40,12 @@ void main()
         }
       }
       break;
+
     case 2:
+      int i;
+
       printf("Digite um item para adicionar: ");
       scanf("%s", &item);
-      int i;
 
       for (i = 0; i < TAM_MOCHILA; i++)
       {
@@ -61,6 +65,36 @@ void main()
         printf("Item adicionado com sucesso!\n");
       }
       break;
+
+    case 3:
+      int remover;
+
+      printf("Digite a posição do item que você deseja remover: ");
+      scanf("%d", &remover);
+
+      if (remover < 0 || remover >= TAM_MOCHILA)
+      {
+        printf("\nPosição inválida!\n");
+      }
+      else if (strcmp(mochila[remover], "") == 0)
+      {
+        printf("A posição já está vazia!\n");
+      }
+      else
+      {
+        strcpy(mochila[remover], "");
+
+        for (int i = remover; i < TAM_MOCHILA - 1; i++)
+        {
+          strcpy(mochila[i], mochila[i + 1]);
+        }
+
+        strcpy(mochila[TAM_MOCHILA - 1], "");
+
+        printf("Item removido com sucesso!\n");
+      }
+      break;
+
     case 4:
       printf("\nSaindo do sistema!");
       sair = 1;
