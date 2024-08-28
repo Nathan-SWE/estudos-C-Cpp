@@ -25,6 +25,19 @@ void main()
 
     switch (opcao)
     {
+    case 1:
+      for (int i = 0; i < TAM_MOCHILA; i++)
+      {
+        if (strcmp(mochila[i], "") == 0)
+        {
+          printf("%d: espaço vazio\n", i);
+        }
+        else
+        {
+          printf("%d: %s\n", i, mochila[i]);
+        }
+      }
+      break;
     case 4:
       printf("\nSaindo do sistema!");
       sair = 1;
