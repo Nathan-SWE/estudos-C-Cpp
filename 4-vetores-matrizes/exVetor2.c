@@ -1,6 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include <locale.h>
 
 #define TAM_MOCHILA 5
@@ -14,6 +12,7 @@ void main()
   int opcao, sair = 0;
   char mochila[TAM_MOCHILA][TAM_NOME] = {0};
   char item[20] = {0};
+  int i, j, k, l, m;
 
   while (sair != 1)
   {
@@ -22,34 +21,56 @@ void main()
     printf("2 - Adicionar item à mochila.\n");
     printf("3 - Remover item da mochila.\n");
     printf("4 - Sair.\n");
-    scanf("\n%d", &opcao);
+    scanf("%d", &opcao);
     printf("\n");
 
-    switch (opcao)
+    if (opcao == 1)
     {
-    case 1:
-      for (int i = 0; i < TAM_MOCHILA; i++)
+      for (i = 0; i < TAM_MOCHILA; i++)
       {
-        if (strcmp(mochila[i], "") == 0)
+        int vazio = 1;
+        for (j = 0; j < TAM_NOME; j++)
+        {
+          if (mochila[i][j] != 0)
+          {
+            vazio = 0;
+            break;
+          }
+        }
+        if (vazio)
         {
           printf("%d: espaço vazio\n", i);
         }
         else
         {
-          printf("%d: %s\n", i, mochila[i]);
+          printf("%d: ", i);
+          for (j = 0; j < TAM_NOME; j++)
+          {
+            if (mochila[i][j] == 0)
+              break;
+            printf("%c", mochila[i][j]);
+          }
+          printf("\n");
         }
       }
-      break;
-
-    case 2:
-      int i;
-
+    }
+    else if (opcao == 2)
+    {
       printf("Digite um item para adicionar: ");
-      scanf("%s", &item);
+      scanf("%s", item);
 
       for (i = 0; i < TAM_MOCHILA; i++)
       {
-        if (strcmp(mochila[i], "") == 0)
+        int vazio = 1;
+        for (j = 0; j < TAM_NOME; j++)
+        {
+          if (mochila[i][j] != 0)
+          {
+            vazio = 0;
+            break;
+          }
+        }
+        if (vazio)
         {
           break;
         }
@@ -61,14 +82,16 @@ void main()
       }
       else
       {
-        strcpy(mochila[i], item);
+        for (j = 0; j < TAM_NOME && item[j] != 0; j++)
+        {
+          mochila[i][j] = item[j];
+        }
         printf("Item adicionado com sucesso!\n");
       }
-      break;
-
-    case 3:
+    }
+    else if (opcao == 3)
+    {
       int remover;
-
       printf("Digite a posição do item que você deseja remover: ");
       scanf("%d", &remover);
 
@@ -76,32 +99,53 @@ void main()
       {
         printf("\nPosição inválida!\n");
       }
-      else if (strcmp(mochila[remover], "") == 0)
-      {
-        printf("A posição já está vazia!\n");
-      }
       else
       {
-        strcpy(mochila[remover], "");
-
-        for (int i = remover; i < TAM_MOCHILA - 1; i++)
+        int vazio = 1;
+        for (j = 0; j < TAM_NOME; j++)
         {
-          strcpy(mochila[i], mochila[i + 1]);
+          if (mochila[remover][j] != 0)
+          {
+            vazio = 0;
+            break;
+          }
         }
+        if (vazio)
+        {
+          printf("A posição já está vazia!\n");
+        }
+        else
+        {
+          for (j = 0; j < TAM_NOME; j++)
+          {
+            mochila[remover][j] = 0;
+          }
 
-        strcpy(mochila[TAM_MOCHILA - 1], "");
+          for (k = remover; k < TAM_MOCHILA - 1; k++)
+          {
+            for (l = 0; l < TAM_NOME; l++)
+            {
+              mochila[k][l] = mochila[k + 1][l];
+            }
+          }
 
-        printf("Item removido com sucesso!\n");
+          for (m = 0; m < TAM_NOME; m++)
+          {
+            mochila[TAM_MOCHILA - 1][m] = 0;
+          }
+
+          printf("Item removido com sucesso!\n");
+        }
       }
-      break;
-
-    case 4:
+    }
+    else if (opcao == 4)
+    {
       printf("\nSaindo do sistema!");
       sair = 1;
-      break;
-    default:
+    }
+    else
+    {
       printf("\nValor inválido, tente novamente uma das opções!\n");
-      break;
     }
   }
 
