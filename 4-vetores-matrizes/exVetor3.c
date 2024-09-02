@@ -1,36 +1,44 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
+#define _LINHA 2
+#define _COLUNA 3
 
-void main()
+int main()
 {
   // programa que preencha duas matrizes 2x2 lendo valores do usuário e depois troque os valores entre a primeira e segunda linha.
   setlocale(LC_ALL, "pt-BR.UTF-8");
 
-  int minhaMatriz[2][2], aux1, aux2, i, j;
+  int matriz[_LINHA][_COLUNA];
+  int aux1, aux2, aux3;
 
-  for (i = 0; i < 2; i++)
+  printf("Informe os valores que deseja adicionar à tabela:\n");
+
+  for (int i = 0; i < _LINHA; i++)
   {
-    for (j = 0; j < 2; j++)
+    for (int j = 0; j < _COLUNA; j++)
     {
-      printf("Digite um valor para [%d][%d]:", i, j);
-      scanf("%d", &minhaMatriz[i][j]);
+      scanf("%d", &matriz[i][j]);
     }
   }
 
-  aux1 = minhaMatriz[0][0];
-  aux2 = minhaMatriz[0][1];
+  aux1 = matriz[0][0];
+  aux2 = matriz[0][1];
+  aux3 = matriz[0][2];
 
-  minhaMatriz[0][0] = minhaMatriz[1][0];
-  minhaMatriz[0][1] = minhaMatriz[1][1];
-  minhaMatriz[1][0] = aux1;
-  minhaMatriz[1][1] = aux2;
+  matriz[0][0] = matriz[1][0];
+  matriz[0][1] = matriz[1][1];
+  matriz[0][2] = matriz[1][2];
 
-  for (i = 0; i < 2; i++)
+  matriz[1][0] = aux1;
+  matriz[1][1] = aux2;
+  matriz[1][2] = aux3;
+
+  for (int i = 0; i < _LINHA; i++)
   {
-    for (j = 0; j < 2; j++)
+    for (int j = 0; j < _COLUNA; j++)
     {
-      printf("%d ", minhaMatriz[i][j]);
+      printf("%d ", matriz[i][j]);
     }
     printf("\n");
   }
@@ -38,4 +46,6 @@ void main()
   getchar();
   printf("\nPressione enter para encerrar...");
   getchar();
+
+  return 0;
 }
