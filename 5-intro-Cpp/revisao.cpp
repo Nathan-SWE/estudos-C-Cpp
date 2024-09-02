@@ -8,13 +8,11 @@ using namespace std;
 
 int main()
 {
-  int a = 0;
+  int a = 10;
 
   cout << "Valor: " << a;
   cin >> a;
   cout << "Valor: " << a;
-
-  
 
   return 0;
 }
